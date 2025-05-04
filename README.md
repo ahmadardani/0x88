@@ -1,2 +1,2 @@
 # 0x88
-This repository contains an e-commerce website project, developed as part of college web development coursework.
+I've changed it. This repository will be my assignment for my statistics college course.
