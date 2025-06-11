@@ -1,33 +1,60 @@
 import sys
-from PySide6 import QtWidgets # Import the necessary Qt modules
+from PySide6 import QtWidgets
+from programui_ui import Ui_MainWindow  # Pastikan file ini sudah dihasilkan dari Qt Designer
 
-# Import the UI definition from the generated file
-# Make sure 'Ui_MainWindow' matches the class name in your ui_program.py
-from programui_ui import Ui_MainWindow
-
-class MyProgram(QtWidgets.QMainWindow): # Your main window class
+class MyProgram(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
-        # Create an instance of the generated UI
         self.ui = Ui_MainWindow()
-        # Set up the UI on this QMainWindow instance
         self.ui.setupUi(self)
 
-        # --- Connect your widgets to functions here ---
-        # For example, if you have a QPushButton named 'pushButton' in Designer:
-        # self.ui.pushButton.clicked.connect(self.my_button_clicked)
+        # Hubungkan tombol btnFill dengan fungsi
+        self.ui.btnFill.clicked.connect(self.fill_code)
 
-        # If you have a QLabel named 'label':
-        # self.ui.label.setText("Welcome to my app!")
+    def fill_code(self):
+        # Ambil teks dari plainText
+        input_text = self.ui.plainText.toPlainText()
+        lines = input_text.strip().splitlines()
 
-    # --- Define your widget interaction functions here ---
-    # def my_button_clicked(self):
-    #     print("Button was clicked!")
-    #     self.ui.label.setText("Button clicked!")
+        # Mulai membentuk HTML
+        html_output = [
+            "<!DOCTYPE html>",
+            "<html>",
+            '    <link href="/styles.css" rel="stylesheet" type="text/css" />',
+            "<head>",
+            '    <meta charset="UTF-8">',
+            "    <title>Anki 200 Part 1</title>",
+            "</head>",
+            '<div class="container">',
+            '    <div class="blog-post">',
+            "        <h2>Anki Kaishi 1.5 K</h2>",
+            "        <h3>200 Part 1</h3>",
+            "            <p>"
+        ]
+
+        # Tambahkan baris-baris kalimat Jepang ke dalam tag <br>
+        for i, line in enumerate(lines, start=1):
+            html_output.append(f"            <br>{i}. {line}")
+
+        html_output.append("            <br>")
+        html_output.append('            <br><b>[ 1 ]</b>')
+
+        # Tambahkan link ke halaman 2 hingga 10
+        for i in range(2, 11):
+            html_output.append(f'                <a href="{i}.html">[ {i} ]</a>')
+
+        html_output.append("            </p>")
+        html_output.append('            <p><a href="/index.html">[ Back ]</a></p>')
+        html_output.append("    </div>")
+        html_output.append("</div>")
+        html_output.append("</html>")
+
+        # Gabungkan jadi satu string dan tampilkan di plainCode
+        self.ui.plainCode.setPlainText("\n".join(html_output))
 
 
 if __name__ == "__main__":
-    app = QtWidgets.QApplication(sys.argv) # Create the application instance
-    window = MyProgram()                   # Create an instance of your main window
-    window.show()                          # Show the window
-    sys.exit(app.exec())                   # Start the event loop
+    app = QtWidgets.QApplication(sys.argv)
+    window = MyProgram()
+    window.show()
+    sys.exit(app.exec())

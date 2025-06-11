@@ -25,9 +25,9 @@ class Ui_MainWindow(object):
         MainWindow.resize(1229, 653)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.btnReplace = QPushButton(self.centralwidget)
-        self.btnReplace.setObjectName(u"btnReplace")
-        self.btnReplace.setGeometry(QRect(480, 240, 93, 39))
+        self.btnFill = QPushButton(self.centralwidget)
+        self.btnFill.setObjectName(u"btnFill")
+        self.btnFill.setGeometry(QRect(480, 240, 93, 39))
         self.plainText = QPlainTextEdit(self.centralwidget)
         self.plainText.setObjectName(u"plainText")
         self.plainText.setGeometry(QRect(20, 110, 421, 391))
@@ -50,6 +50,6 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Program", None))
-        self.btnReplace.setText(QCoreApplication.translate("MainWindow", u"Replace!", None))
+        self.btnFill.setText(QCoreApplication.translate("MainWindow", u"Fill!", None))
     # retranslateUi
 
