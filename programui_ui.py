@@ -25,15 +25,15 @@ class Ui_MainWindow(object):
         MainWindow.resize(1229, 653)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.pushButton = QPushButton(self.centralwidget)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setGeometry(QRect(480, 240, 93, 39))
-        self.plainTextEdit = QPlainTextEdit(self.centralwidget)
-        self.plainTextEdit.setObjectName(u"plainTextEdit")
-        self.plainTextEdit.setGeometry(QRect(20, 110, 421, 391))
-        self.plainTextEdit_2 = QPlainTextEdit(self.centralwidget)
-        self.plainTextEdit_2.setObjectName(u"plainTextEdit_2")
-        self.plainTextEdit_2.setGeometry(QRect(620, 40, 581, 561))
+        self.btnReplace = QPushButton(self.centralwidget)
+        self.btnReplace.setObjectName(u"btnReplace")
+        self.btnReplace.setGeometry(QRect(480, 240, 93, 39))
+        self.plainText = QPlainTextEdit(self.centralwidget)
+        self.plainText.setObjectName(u"plainText")
+        self.plainText.setGeometry(QRect(20, 110, 421, 391))
+        self.plainCode = QPlainTextEdit(self.centralwidget)
+        self.plainCode.setObjectName(u"plainCode")
+        self.plainCode.setGeometry(QRect(620, 40, 581, 561))
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
@@ -50,6 +50,6 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Program", None))
-        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Replace!", None))
+        self.btnReplace.setText(QCoreApplication.translate("MainWindow", u"Replace!", None))
     # retranslateUi
 

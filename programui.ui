@@ -14,7 +14,7 @@
    <string>Program</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="btnReplace">
     <property name="geometry">
      <rect>
       <x>480</x>
@@ -27,7 +27,7 @@
      <string>Replace!</string>
     </property>
    </widget>
-   <widget class="QPlainTextEdit" name="plainTextEdit">
+   <widget class="QPlainTextEdit" name="plainText">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -37,7 +37,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPlainTextEdit" name="plainTextEdit_2">
+   <widget class="QPlainTextEdit" name="plainCode">
     <property name="geometry">
      <rect>
       <x>620</x>
